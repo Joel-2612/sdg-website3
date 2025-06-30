@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Development Goals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .sdg-color-1 { background-color: #E5243B; }
+        .sdg-color-2 { background-color: #DDA63A; }
+        .sdg-color-3 { background-color: #4C9F38; }
+        .sdg-color-4 { background-color: #C5192D; }
+        .sdg-color-5 { background-color: #FF3A21; }
+        .sdg-color-6 { background-color: #26BDE2; }
+        .sdg-color-7 { background-color: #FCC30B; }
+        .sdg-color-8 { background-color: #A21942; }
+        .sdg-color-9 { background-color: #FD6925; }
+        .sdg-color-10 { background-color: #DD1367; }
+        .sdg-color-11 { background-color: #FD9D24; }
+        .sdg-color-12 { background-color: #BF8B2E; }
+        .sdg-color-13 { background-color: #3F7E44; }
+        .sdg-color-14 { background-color: #0A97D9; }
+        .sdg-color-15 { background-color: #56C02B; }
+        .sdg-color-16 { background-color: #00689D; }
+        .sdg-color-17 { background-color: #19486A; }
+
+        .sdg-text-color-1 { color: #E5243B; }
+        .sdg-text-color-2 { color: #DDA63A; }
+        .sdg-text-color-3 { color: #4C9F38; }
+        .sdg-text-color-4 { color: #C5192D; }
+        .sdg-text-color-5 { color: #FF3A21; }
+        .sdg-text-color-6 { color: #26BDE2; }
+        .sdg-text-color-7 { color: #FCC30B; }
+        .sdg-text-color-8 { color: #A21942; }
+        .sdg-text-color-9 { color: #FD6925; }
+        .sdg-text-color-10 { color: #DD1367; }
+        .sdg-text-color-11 { color: #FD9D24; }
+        .sdg-text-color-12 { color: #BF8B2E; }
+        .sdg-text-color-13 { color: #3F7E44; }
+        .sdg-text-color-14 { color: #0A97D9; }
+        .sdg-text-color-15 { color: #56C02B; }
+        .sdg-text-color-16 { color: #00689D; }
+        .sdg-text-color-17 { color: #19486A; }
+
+        .sdg-sidebar-number {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: white;
+            flex-shrink: 0;
+            margin-right: 0.75rem;
+        }
+        #sdg-nav a.active {
+            background-color: #4a5568;
+            font-weight: bold;
+        }
+
+        .country-flag {
+            width: 40px;
+            height: 30px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .stat-box {
+            background-color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin-top: 0.25rem;
+        }
+
+        .sdg-title-banner {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0.75rem;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .country-card {
+            background-color: #f9fafb;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s ease-in-out;
+        }
+        .country-card:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="bg-gradient-to-r from-blue-600 to-green-500 text-white p-6 shadow-lg rounded-b-lg">
+        <h1 class="text-4xl font-bold text-center">Sustainable Development Goals (SDGs)</h1>
+        <p class="text-center mt-2 text-lg">A blueprint for a better and more sustainable future for all.</p>
+    </header>
+
+    <div class="flex flex-1 flex-col lg:flex-row">
+        <nav class="w-full lg:w-64 bg-gray-800 text-white p-4 shadow-xl lg:min-h-[calc(100vh-8rem)] overflow-y-auto rounded-lg lg:m-4">
+            <h2 class="text-2xl font-semibold mb-4 border-b border-gray-600 pb-3">The 17 Goals</h2>
+            <ul id="sdg-nav">
+                <li class="mb-2">
+                    <a href="#" data-sdg="home" class="block p-3 rounded-md hover:bg-gray-700 transition-colors duration-200">
+                        <span class="sdg-sidebar-number bg-blue-500">🏠</span>
+                        <span class="font-medium">Overview</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="flex-1 p-6 lg:p-8 bg-white shadow-xl rounded-lg lg:m-4">
+            <div id="content-display" class="prose max-w-none">
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-gray-800 text-white text-center p-4 mt-auto rounded-t-lg">
+        <p>&copy; 2025 Sustainable Development Goals. All rights reserved.                           Made by - Joel Martin, Abraham Daniel Nithin, Christopher John </p>
+    </footer>
+
+    <script>
+        const sdgData = [
+            {
+                id: 1,
+                title: "No Poverty",
+                color: "sdg-color-1",
+                description: "Ending poverty in all its forms everywhere is not merely an economic objective but a fundamental requirement for a peaceful and prosperous world. It involves ensuring social protection for the poor and vulnerable, increasing access to basic services, and supporting people affected by conflict and climate-related disasters.",
+                countries: ["China", "Vietnam", "Rwanda", "South Korea", "Chile"],
+                statistics: [
+                    { number: "~809.9M", label: "People in extreme poverty (2025)" },
+                    { number: "1.3B", label: "People lifted out of poverty since 1980" },
+                    { number: "2030", label: "Target year for ending extreme poverty" }
+                ],
+                initiatives: [
+                    "Conditional Cash Transfer Programs in Brazil and Mexico.",
+                    "Microfinance institutions supporting small businesses in developing countries.",
+                    "Universal Basic Income trials in various countries (e.g., Finland, Canada).",
+                    "Debt relief initiatives for highly indebted poor countries."
+                ]
+            },
+            {
+                id: 2,
+                title: "Zero Hunger",
+                color: "sdg-color-2",
+                description: "This goal aims to end hunger, achieve food security and improved nutrition, and promote sustainable agriculture. It calls for better access to nutritious food, ending all forms of malnutrition, and doubling the agricultural agricultural productivity and incomes of small-scale food producers.",
+                countries: ["Brazil", "Thailand", "Ghana", "Vietnam", "Ethiopia"],
+                statistics: [
+                    { number: "735M", label: "Undernourished people (2025)" },
+                    { number: "9.1%", label: "World population facing hunger" },
+                    { number: "30%", label: "Food lost or wasted globally" }
+                ],
+                initiatives: [
+                    "School feeding programs.",
+                    "Support for smallholder farmers and sustainable agricultural practices.",
+                    "Genetic diversity preservation of seeds and cultivated plants.",
+                    "Global food assistance programs."
+                ]
+            },
+            {
+                id: 3,
+                title: "Good Health and Well-being",
+                color: "sdg-color-3",
+                description: "Ensuring healthy lives and promoting well-being for all at all ages is crucial to sustainable development. This includes reducing maternal and child mortality, combating communicable diseases, ensuring universal access to sexual and reproductive health-care services, and achieving universal health coverage.",
+                countries: ["Japan", "Switzerland", "Canada", "Norway", "Sweden"],
+                statistics: [
+                    { number: "400M+", label: "People lack essential health services" },
+                    { number: "7M", label: "Children under 5 saved since 1980" },
+                    { number: "80%", label: "TB cases prevented and cured since 2000" }
+                ],
+                initiatives: [
+                    "Global vaccination campaigns (e.g., Polio eradication).",
+                    "Strengthening primary healthcare systems.",
+                    "HIV/AIDS prevention and treatment programs.",
+                    "Access to essential medicines and vaccines."
+                ]
+            },
+            {
+                id: 4,
+                title: "Quality Education",
+                color: "sdg-color-4",
+                description: "Achieving inclusive and equitable quality education and promoting lifelong learning opportunities for all is fundamental for people to escape poverty and live a more fulfilling life. It focuses on ensuring all girls and boys complete free, equitable, and quality primary and secondary education.",
+                countries: ["Finland", "Canada", "South Korea", "Estonia", "Singapore"],
+                statistics: [
+                    { number: "250M", label: "Children out of school" },
+                    { number: "773M", label: "Illiterate adults globally" },
+                    { number: "90%", label: "Primary school enrollment (global)" }
+                ],
+                initiatives: [
+                    "Investment in early childhood development.",
+                    "Teacher training and professional development.",
+                    "Promoting digital literacy and remote learning.",
+                    "Scholarship programs for higher education."
+                ]
+            },
+            {
+                id: 5,
+                title: "Gender Equality",
+                color: "sdg-color-5",
+                description: "Gender equality is not only a fundamental human right, but a necessary foundation for a peaceful, prosperous and sustainable world. This goal aims to end all forms of discrimination against all women and girls everywhere, eliminate violence, and ensure women's full and effective participation and equal opportunities for leadership.",
+                countries: ["Iceland", "Norway", "Sweden", "Finland", "New Zealand"],
+                statistics: [
+                    { number: "1 in 3", label: "Women experienced physical/sexual violence" },
+                    { number: "24%", label: "Female parliamentarians (global)" },
+                    { number: "75%", label: "Women in informal employment" }
+                ],
+                initiatives: [
+                    "Legislation for equal pay and rights.",
+                    "Campaigns to end gender-based violence.",
+                    "Promoting women's leadership and participation in decision-making.",
+                    "Empowering women through access to education and economic resources."
+                ]
+            },
+            {
+                id: 6,
+                title: "Clean Water and Sanitation",
+                color: "sdg-color-6",
+                description: "Access to water, sanitation, and hygiene is a human right, yet billions still lack it. This goal seeks to achieve universal and equitable access to safe and affordable drinking water for all, adequate and equitable sanitation and hygiene for all, and improve water quality.",
+                countries: ["Germany", "Netherlands", "Singapore", "Switzerland", "Denmark"],
+                statistics: [
+                    { number: "2.2B", label: "People lack safely managed drinking water" },
+                    { number: "4.2B", label: "People lack safely managed sanitation" },
+                    { number: "3B", label: "People lack basic handwashing facilities" }
+                ],
+                initiatives: [
+                    "Community-led total sanitation (CLTS) programs.",
+                    "Investment in water infrastructure and treatment plants.",
+                    "Water conservation and efficient irrigation techniques.",
+                    "Transboundary water cooperation agreements."
+                ]
+            },
+            {
+                id: 7,
+                title: "Affordable and Clean Energy",
+                color: "sdg-color-7",
+                description: "Ensuring access to affordable, reliable, sustainable, and modern energy for all is vital. It involves increasing substantially the share of renewable energy in the global energy mix and doubling the global rate of improvement in energy efficiency.",
+                countries: ["Denmark", "Germany", "Sweden", "Costa Rica", "Norway"],
+                statistics: [
+                    { number: "770M", label: "People lack access to electricity" },
+                    { number: "17%", label: "Renewable energy in global energy mix (2025)" },
+                    { number: "2x", label: "Target for global rate of energy efficiency improvement" }
+                ],
+                initiatives: [
+                    "Solar and wind energy projects.",
+                    "Development of smart grids and energy storage solutions.",
+                    "Off-grid renewable energy solutions for rural areas.",
+                    "Energy efficiency standards for buildings and appliances."
+                ]
+            },
+            {
+                id: 8,
+                title: "Decent Work and Economic Growth",
+                color: "sdg-color-8",
+                description: "This goal promotes sustained, inclusive, and sustainable economic growth, full and productive employment, and decent work for all. It emphasizes protecting labor rights, promoting safe and secure working environments, and fostering entrepreneurship and innovation.",
+                countries: ["New Zealand", "Sweden", "Germany", "Netherlands", "Canada"],
+                statistics: [
+                    { number: "200M+", label: "Unemployed worldwide" },
+                    { number: "$1.91", label: "International poverty line (per day)" },
+                    { number: "7.7%", label: "Youth unemployment rate (global)" }
+                ],
+                initiatives: [
+                    "Promoting fair wages and safe working conditions.",
+                    "Support for small and medium-sized enterprises (SMEs).",
+                    "Vocational training and skills development programs.",
+                    "Combating forced labor and child labor."
+                ]
+            },
+            {
+                id: 9,
+                title: "Industry, Innovation, and Infrastructure",
+                color: "sdg-color-9",
+                description: "Building resilient infrastructure, promoting inclusive and sustainable industrialization, and fostering innovation are crucial for sustainable development. This involves developing quality, reliable, sustainable and resilient infrastructure, and enhancing scientific research and upgrading the technological capabilities of industrial sectors.",
+                countries: ["South Korea", "Germany", "Japan", "Switzerland", "USA"],
+                statistics: [
+                    { number: "75%", label: "Rural population lacks adequate roads" },
+                    { number: "14%", label: "Manufacturing value added (LDCs, 2017)" },
+                    { number: "3.5B", label: "People lack internet access" }
+                ],
+                initiatives: [
+                    "Investment in renewable energy infrastructure.",
+                    "Development of sustainable transport systems.",
+                    "Promoting research and development in green technologies.",
+                    "Expanding access to information and communication technologies (ICT)."
+                ]
+            },
+            {
+                id: 10,
+                title: "Reduced Inequalities",
+                color: "sdg-color-10",
+                description: "Reducing inequality within and among countries is a key part of the sustainable development agenda. This means empowering and promoting the social, economic and political inclusion of all, irrespective of age, sex, disability, race, ethnicity, origin, religion or economic or other status.",
+                countries: ["Norway", "Denmark", "Finland", "Sweden", "Slovenia"],
+                statistics: [
+                    { number: "40%", label: "Poorest share of national income decreased" },
+                    { number: "10%", label: "Wealthiest hold 76% of global wealth" },
+                    { number: "1B+", label: "People with disabilities" }
+                ],
+                initiatives: [
+                    "Progressive taxation policies.",
+                    "Social protection floors and universal basic services.",
+                    "Anti-discrimination legislation and policies.",
+                    "Promoting representation of marginalized groups in decision-making."
+                ]
+            },
+            {
+                id: 11,
+                title: "Sustainable Cities and Communities",
+                color: "sdg-color-11",
+                description: "Making cities and human settlements inclusive, safe, resilient, and sustainable. This includes enhancing inclusive and sustainable urbanization, protecting cultural and natural heritage, reducing the adverse per capita environmental impact of cities, and providing access to safe, affordable, accessible and sustainable transport systems for all.",
+                countries: ["Sweden", "Canada", "Japan", "Singapore", "Denmark"],
+                statistics: [
+                    { number: "55%", label: "World population lives in urban areas" },
+                    { number: "90%", label: "Urban expansion in developing countries" },
+                    { number: "4M", label: "Slum dwellers in cities (global)" }
+                ],
+                initiatives: [
+                    "Green building codes and urban planning.",
+                    "Development of public transportation networks.",
+                    "Preservation of cultural heritage sites.",
+                    "Promoting urban green spaces and parks."
+                ]
+            },
+            {
+                id: 12,
+                title: "Responsible Consumption and Production",
+                color: "sdg-color-12",
+                description: "Ensuring sustainable consumption and production patterns is about doing more and better with less. It encourages industries, businesses and consumers to recycle and reduce waste, and supports countries to move towards more sustainable patterns of consumption and production.",
+                countries: ["Germany", "Sweden", "Netherlands", "Finland", "Switzerland"],
+                statistics: [
+                    { number: "97B", label: "Tons of materials extracted (2025)" },
+                    { number: "30%", label: "Reduction in global food waste target" },
+                    { number: "17%", label: "Plastic waste recycled (global)" }
+                ],
+                initiatives: [
+                    "Promoting circular economy models.",
+                    "Eco-labeling and sustainable procurement.",
+                    "Consumer awareness campaigns on sustainable living.",
+                    "Waste reduction and recycling programs."
+                ]
+            },
+            {
+                id: 13,
+                title: "Climate Action",
+                color: "sdg-color-13",
+                description: "Taking urgent action to combat climate change and its impacts. This means strengthening resilience and adaptive capacity to climate-related hazards and natural disasters in all countries, integrating climate change measures into national policies, strategies and planning, and improving education and awareness-raising.",
+                countries: ["Sweden", "Costa Rica", "Denmark", "Morocco", "Bhutan"],
+                statistics: [
+                    { number: "1.3°C", label: "Global temperature increase (above pre-industrial)" },
+                    { number: "2010-2019", label: "Decade of warmest temperatures on record" },
+                    { number: "100M+", label: "People face climate-induced poverty by 2030" }
+                ],
+                initiatives: [
+                    "Paris Agreement implementation.",
+                    "Investment in renewable energy and decarbonization.",
+                    "Climate change adaptation strategies (e.g., early warning systems).",
+                    "Carbon pricing and emissions trading schemes."
+                ]
+            },
+            {
+                id: 14,
+                title: "Life Below Water",
+                color: "sdg-color-14",
+                description: "Conserving and sustainably using the oceans, seas, and marine resources for sustainable development. This involves preventing and significantly reducing marine pollution of all kinds, minimizing ocean acidification, and sustainably managing and protecting marine and coastal ecosystems.",
+                countries: ["Norway", "Iceland", "New Zealand", "Portugal", "Palau"],
+                statistics: [
+                    { number: "8M", label: "Tons of plastic in oceans annually" },
+                    { number: "30%", label: "Marine species vulnerable due to ocean acidification" },
+                    { number: "3B+", label: "People rely on marine biodiversity for livelihoods" }
+                ],
+                initiatives: [
+                    "Creation of marine protected areas (MPAs).",
+                    "Combating illegal, unreported and unregulated (IUU) fishing.",
+                    "Reducing plastic pollution and microplastics.",
+                    "Scientific research on ocean health."
+                ]
+            },
+            {
+                id: 15,
+                title: "Life on Land",
+                color: "sdg-color-15",
+                description: "Protecting, restoring, and promoting sustainable use of terrestrial ecosystems, sustainably managing forests, combating desertification, halting and reversing land degradation, and halting biodiversity loss. It aims to conserve mountain ecosystems, take urgent action to end poaching and trafficking of protected species, and introduce measures to prevent the introduction of invasive alien species.",
+                countries: ["Costa Rica", "Finland", "Bhutan", "Brazil", "Canada"],
+                statistics: [
+                    { number: "14M", label: "Hectares of forest lost annually" },
+                    { number: "1M+", label: "Animal and plant species threatened with extinction" },
+                    { number: "30%", label: "Land degraded by erosion (global)" }
+                ],
+                initiatives: [
+                    "Reforestation and afforestation programs.",
+                    "Combating deforestation and land degradation.",
+                    "Protection of endangered species and their habitats.",
+                    "Sustainable forest management practices."
+                ]
+            },
+            {
+                id: 16,
+                title: "Peace, Justice, and Strong Institutions",
+                color: "sdg-color-16",
+                description: "Promoting peaceful and inclusive societies for sustainable development, providing access to justice for all, and building effective, accountable, and inclusive institutions at all levels. This includes significantly reducing all forms of violence, promoting the rule of law, and ensuring public access to information.",
+                countries: ["Iceland", "New Zealand", "Denmark", "Switzerland", "Canada"],
+                statistics: [
+                    { number: "1 in 3", label: "Children registered at birth" },
+                    { number: "43%", label: "Increase in civilian deaths in armed conflicts (last decade)" },
+                    { number: "1.2B", label: "People lack legal identity" }
+                ],
+                initiatives: [
+                    "Strengthening rule of law and access to justice.",
+                    "Anti-corruption measures and good governance.",
+                    "Promoting inclusive and participatory decision-making.",
+                    "Peacebuilding and conflict resolution efforts."
+                ]
+            },
+            {
+                id: 17,
+                title: "Partnerships for the Goals",
+                color: "sdg-color-17",
+                description: "Strengthening the means of implementation and revitalizing the global partnership for sustainable development. This involves enhancing global macroeconomic stability, increasing financial and technological capacity building for developing countries, and promoting multi-stakeholder partnerships.",
+                countries: ["Germany", "Norway", "Sweden", "Netherlands", "Japan"],
+                statistics: [
+                    { number: "$157B", label: "Official Development Assistance (2025)" },
+                    { number: "25%", label: "Internet penetration in LDCs" },
+                    { number: "60+", label: "Bilateral tax treaties to reduce illicit financial flows" }
+                ],
+                initiatives: [
+                    "North-South, South-South, and triangular cooperation.",
+                    "Technology transfer and capacity building.",
+                    "Mobilizing financial resources for development.",
+                    "Multi-stakeholder partnerships involving governments, civil society, and the private sector."
+                ]
+            }
+        ];
+
+        const countryCodeMap = {
+            "China": "cn", "Vietnam": "vn", "Rwanda": "rw", "South Korea": "kr", "Chile": "cl",
+            "Brazil": "br", "Thailand": "th", "Ghana": "gh", "Ethiopia": "et",
+            "Japan": "jp", "Switzerland": "ch", "Canada": "ca", "Norway": "no", "Sweden": "se",
+            "Finland": "fi", "Iceland": "is", "New Zealand": "nz", "Germany": "de", "Netherlands": "nl",
+            "Singapore": "sg", "Denmark": "dk", "Costa Rica": "cr", "USA": "us", "Estonia": "ee",
+            "Slovenia": "si", "Morocco": "ma", "Bhutan": "bt", "Portugal": "pt", "Palau": "pw",
+        };
+
+        const sdgNav = document.getElementById('sdg-nav');
+        const contentDisplay = document.getElementById('content-display');
+
+        function getCountryFlagUrl(countryName) {
+            const countryCode = countryCodeMap[countryName];
+            if (countryCode) {
+                return `https://flagcdn.com/w40/${countryCode}.png`;
+            }
+            return `https://placehold.co/40x30/cccccc/333333?text=Flag`;
+        }
+
+        function displaySDG(sdgId) {
+            let contentHTML = '';
+
+            if (sdgId === 'home') {
+                contentHTML = `
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">The 2030 Agenda for Sustainable Development</h2>
+                    <p class="text-lg leading-relaxed mb-6">
+                        The Sustainable Development Goals (SDGs), also known as the Global Goals, were adopted by the United Nations in 2015 as a universal call to action to end poverty, protect the planet, and ensure that all people enjoy peace and prosperity by 2030.
+                    </p>
+                    <p class="text-lg leading-relaxed mb-6">
+                        The 17 SDGs are integrated—they recognize that action in one area will affect outcomes in others, and that development must balance social, economic and environmental sustainability.
+                        The Goals are a blueprint to achieve a better and more sustainable future for all. They address the global challenges we face, including those related to poverty, hunger, health, education, climate change, gender equality, water, sanitation, energy, environment, and social justice.
+                    </p>
+                    <div class="mb-8 p-4 bg-gray-100 rounded-lg shadow-inner">
+                        <img src="https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg" alt="World Map illustrating global reach of SDGs" class="w-full h-auto rounded-lg shadow-md">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        ${sdgData.map(sdg => `
+                            <div class="p-4 rounded-lg shadow-md flex items-center space-x-3 cursor-pointer ${sdg.color} text-white hover:opacity-90 transition-opacity duration-200" data-sdg-id="${sdg.id}">
+                                <div class="text-4xl font-bold">${sdg.id}</div>
+                                <h3 class="text-xl font-semibold">${sdg.title}</h3>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else {
+                const sdg = sdgData.find(s => s.id === sdgId);
+                if (sdg) {
+                    contentHTML = `
+                        <div class="sdg-title-banner ${sdg.color}">
+                            ${sdg.id}. ${sdg.title}
+                        </div>
+                        <p class="text-lg leading-relaxed mb-6 text-gray-700">${sdg.description}</p>
+
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Top 5 Countries for Effective Implementation:</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+                            ${sdg.countries.map(country => `
+                                <div class="country-card">
+                                    <img src="${getCountryFlagUrl(country)}" alt="Flag of ${country}" class="country-flag mr-4">
+                                    <span class="text-lg text-gray-800 font-medium">${country}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Key Statistics:</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                            ${sdg.statistics.map(stat => `
+                                <div class="stat-box">
+                                    <div class="stat-number">${stat.number}</div>
+                                    <div class="stat-label">${stat.label}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Key Initiatives/Projects:</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                            ${sdg.initiatives.map(initiative => `
+                                <li class="text-lg">${initiative}</li>
+                            `).join('')}
+                        </ul>
+                    `;
+                } else {
+                    contentHTML = '<p class="text-red-500">SDG not found.</p>';
+                }
+            }
+            contentDisplay.innerHTML = contentHTML;
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (sdgId === 'home') {
+                document.querySelectorAll('[data-sdg-id]').forEach(card => {
+                    card.addEventListener('click', (event) => {
+                        const clickedSdgId = parseInt(event.currentTarget.dataset.sdgId);
+                        displaySDG(clickedSdgId);
+                        document.querySelectorAll('#sdg-nav a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        document.querySelector(`#sdg-nav a[data-sdg="${clickedSdgId}"]`).classList.add('active');
+                    });
+                });
+            }
+        }
+
+        sdgData.forEach(sdg => {
+            const li = document.createElement('li');
+            li.className = 'mb-2';
+            li.innerHTML = `
+                <a href="#" data-sdg="${sdg.id}" class="block p-3 rounded-md hover:bg-gray-700 transition-colors duration-200 text-white flex items-center">
+                    <span class="sdg-sidebar-number ${sdg.color}">${sdg.id}</span>
+                    <span class="font-medium">${sdg.title}</span>
+                </a>
+            `;
+            sdgNav.appendChild(li);
+        });
+
+        sdgNav.addEventListener('click', (event) => {
+            event.preventDefault();
+            const target = event.target.closest('a');
+            if (target) {
+                const sdgId = target.dataset.sdg;
+                if (sdgId) {
+                    displaySDG(sdgId === 'home' ? 'home' : parseInt(sdgId));
+                    document.querySelectorAll('#sdg-nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    target.classList.add('active');
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displaySDG('home');
+            document.querySelector('#sdg-nav a[data-sdg="home"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>
